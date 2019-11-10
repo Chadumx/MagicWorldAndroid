@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controller.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="378dp"
+        android:layout_height="62dp"
+        android:gravity="center"
+        android:text="Bienvenue sur le jeu de combat"
+        android:textSize="16dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="240dp"
+        android:layout_height="218dp"
+        android:gravity="center"
+        android:text="Magic World Android"
+        android:textSize="50dp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="105dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="239dp"
+        android:layout_height="41dp"
+        android:text="creation du personnage !"
+        tools:layout_editor_absoluteX="86dp"
+        tools:layout_editor_absoluteY="366dp" />
+
+    <Button
+        android:id="@+id/joueur_1"
+        android:layout_width="156dp"
+        android:layout_height="58dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="451dp" />
+
+    <Button
+        android:id="@+id/joueur_2"
+        android:layout_width="141dp"
+        android:layout_height="54dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="544dp" />
+
+    <Button
+        android:id="@+id/bouton_demarrer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lancez la partie !"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="641dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
