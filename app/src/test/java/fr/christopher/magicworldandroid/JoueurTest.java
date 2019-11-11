@@ -1,15 +1,15 @@
 package fr.christopher.magicworldandroid;
-
+/**
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
 import fr.christopher.magicworldandroid.Model.combat.Combats;
-import fr.christopher.magicworldandroid.Model.joueur.Guerrier;
-import fr.christopher.magicworldandroid.Model.joueur.Joueur;
-import fr.christopher.magicworldandroid.Model.joueur.Mage;
-import fr.christopher.magicworldandroid.Model.joueur.Rodeur;
+import fr.christopher.magicworldandroid.Model.Guerrier;
+import fr.christopher.magicworldandroid.Model.Joueur;
+import fr.christopher.magicworldandroid.Model.Mage;
+import fr.christopher.magicworldandroid.Model.Rodeur;
 import fr.christopher.magicworldandroid.Model.partie.Partie;
 
 import static junit.framework.TestCase.assertTrue;
@@ -20,6 +20,7 @@ class JoueurTest {
     /**
      * test la creation d'un personnage de classe guerrier.
      */
+/**
     @Test
     public void testCreationGuerrier() {
 
@@ -42,6 +43,7 @@ class JoueurTest {
     /**
      * test la creation d'un personnage de classe rodeur.
      */
+/**
     @Test
     public void testCreationRodeur() {
 
@@ -64,6 +66,7 @@ class JoueurTest {
     /**
      * test la creation d'un personnage de classe mage.
      */
+/**
     @Test
     public void testCreationMage() {
 
@@ -86,6 +89,7 @@ class JoueurTest {
     /**
      * test le resultat de la methode fin().
      */
+/**
     static class PartieTest {
 
         @Test
@@ -116,4 +120,4 @@ class JoueurTest {
             assertEquals(Partie.fin(attaquant, defenseur), "Joueur 2 a perdu !");
         }
     }
-}
+}*/

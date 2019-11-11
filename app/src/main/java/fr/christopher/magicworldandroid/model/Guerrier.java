@@ -1,17 +1,20 @@
-package fr.christopher.magicworldandroid.Model.joueur;
-
-import java.util.Scanner;
+package fr.christopher.magicworldandroid.model;
 
 /**
  *definie la methode des differentes attaques de la classe guerriers.
  */
 public class Guerrier extends Personnage {
     /**
-     * Permet de definir les attributs de la classe guerrier.
-     * @param joueurName donne le nom du joueur.
+     * constructeur de la classe Personnage.
+     *
+     * @param niveau
+     * @param force
+     * @param agilite
+     * @param intelligence
+     * @param vitallite
      */
-    public Guerrier(String joueurName, Scanner clavier) {
-        super(joueurName, clavier);
+    public Guerrier(int niveau, int force, int agilite, int intelligence, int vitallite) {
+        super(niveau, force, agilite, intelligence, vitallite);
     }
 
     /**
@@ -33,8 +36,6 @@ public class Guerrier extends Personnage {
         int vitalite = defenseur.getVitalite() - this.force;
         defenseur.setVitalite(vitalite);
 
-        System.out.printf("%s utilise %s et inflige %s dommages\n", this.player, "coup d'épée", this.force);
-        System.out.printf("%s perd %s points de vie\n", defenseur.getPlayerName(), this.force);
     }
 
     /**
@@ -49,8 +50,5 @@ public class Guerrier extends Personnage {
 
         this.vitalite -= (this.force / 2);
 
-        System.out.printf("%s utilise %s et inflige %s de dommages\n", this.player, "coup de rage", (this.force * 2));
-        System.out.printf("%s perd %s point de vie\n", defenseur.getPlayerName(), (this.force * 2));
-        System.out.printf("%s perd %s points de vie\n", this.player, (this.force / 2));
     }
 }

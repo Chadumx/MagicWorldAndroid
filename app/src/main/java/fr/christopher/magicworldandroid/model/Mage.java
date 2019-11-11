@@ -1,6 +1,4 @@
-package fr.christopher.magicworldandroid.Model.joueur;
-
-import java.util.Scanner;
+package fr.christopher.magicworldandroid.model;
 
 /**
  *definie la methode des differentes attaques de la classe mage.
@@ -10,12 +8,18 @@ public class Mage extends Personnage {
     public final int VITALITE = this.vitalite;
 
     /**
-     * defini les attributs de la classe mage.
-     * @param joueurName donne le nom du joueur.
+     * constructeur de la classe Personnage.
+     *
+     * @param niveau
+     * @param force
+     * @param agilite
+     * @param intelligence
+     * @param vitallite
      */
-    public Mage(String joueurName, Scanner clavier) {
-        super(joueurName, clavier);
+    public Mage(int niveau, int force, int agilite, int intelligence, int vitallite) {
+        super(niveau, force, agilite, intelligence, vitallite);
     }
+
 
     /**
      * permet de retourne le nom de la classe mage.
@@ -36,8 +40,6 @@ public class Mage extends Personnage {
         int vitalite = defenseur.getVitalite() - this.intelligence;
         defenseur.setVitalite(vitalite);
 
-        System.out.printf("%s utilise %s et inflige %s dommages\n", this.player, "boule de feu", this.intelligence);
-        System.out.printf("%s perd %s points de vie\n", defenseur.getPlayerName(), this.intelligence);
     }
 
     /**
@@ -56,6 +58,5 @@ public class Mage extends Personnage {
 
         int gainVitalite = this.vitalite - temp;
 
-        System.out.printf("%s utilise %s et gagne %s en vitalité\n", this.player, "soin", gainVitalite);
     }
 }

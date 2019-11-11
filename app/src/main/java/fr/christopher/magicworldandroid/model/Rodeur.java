@@ -1,20 +1,21 @@
-package fr.christopher.magicworldandroid.Model.joueur;
-
-import java.util.Scanner;
-
-import fr.christopher.magicworldandroid.Model.joueur.Joueur;
-import fr.christopher.magicworldandroid.Model.joueur.Personnage;
+package fr.christopher.magicworldandroid.model;
 
 /**
  *definie la methode des differentes attaques de la classe rodeur.
  */
 public class Rodeur extends Personnage {
+
     /**
-     *permet de definir les attributs de la classe rodeur.
-     * @param joueurName donne le nom du joueur.
+     * constructeur de la classe Personnage.
+     *
+     * @param niveau
+     * @param force
+     * @param agilite
+     * @param intelligence
+     * @param vitallite
      */
-    public Rodeur(String joueurName, Scanner clavier)  {
-        super(joueurName, clavier);
+    public Rodeur(int niveau, int force, int agilite, int intelligence, int vitallite) {
+        super(niveau, force, agilite, intelligence, vitallite);
     }
 
     /**
@@ -36,8 +37,6 @@ public class Rodeur extends Personnage {
         int vitalite = defenseur.getVitalite() - this.agilite;
         defenseur.setVitalite(vitalite);
 
-        System.out.printf("%s utilise %s et inflige %s dommages\n", this.player, "tire à l'arc", this.agilite);
-        System.out.printf("%s perd %s points de vie\n", defenseur.getPlayerName(), this.agilite);
     }
 
     /**
@@ -51,6 +50,5 @@ public class Rodeur extends Personnage {
         this.agilite += this.niveau / 2;
         int gainAgilite = this.agilite - temp;
 
-        System.out.printf("%s utilise %s et gagne %s en agilité\n", this.player, "concentration", gainAgilite);
     }
 }

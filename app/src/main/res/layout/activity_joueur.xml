@@ -4,42 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.CombatActivity">
+    tools:context=".controller.JoueurActivity">
 
     <TextView
-        android:id="@+id/texte_choix_attaque"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="joueur 1 choisi ton attaque"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="156dp"
+        android:id="@+id/classe_personnage"
+        android:layout_width="202dp"
+        android:layout_height="95dp"
+        android:text="Choix de la classe du personnege du joueur 1"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="59dp"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/attaque_basique"
+        android:id="@+id/guerrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="attaque basique"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="317dp"
+        android:text="Guerrier"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="424dp"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/attaque_speciale"
+        android:id="@+id/rodeur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="attaque speciale"
-        tools:layout_editor_absoluteX="229dp"
-        tools:layout_editor_absoluteY="317dp"
+        android:text="Rodeur"
+        tools:layout_editor_absoluteX="235dp"
+        tools:layout_editor_absoluteY="424dp"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/resultat_attaque"
+    <Button
+        android:id="@+id/mage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="defenseur perds 0 point de vie"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="591dp"
+        android:text="Mage"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="572dp"
         tools:ignore="MissingConstraints" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
