@@ -31,12 +31,11 @@ public class MainActivity extends AppCompatActivity {
         joueur01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
-                Joueur joueur1 = new Joueur();
 
                 Intent joueurActivityIntent = new Intent(MainActivity.this, JoueurActivity.class);
 
-                intent.putExtra("joueur", joueur1);
+                Joueur joueur1 = new Joueur();
+
 
                 startActivityForResult(joueurActivityIntent, 1);
 
@@ -47,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Joueur joueur2 = new Joueur();
-
                 Intent joueurActivityIntent = new Intent(MainActivity.this, JoueurActivity.class);
+
+                Joueur joueur2 = new Joueur();
+                intent.putExtra("joueur", joueur2);
+
                 startActivityForResult(joueurActivityIntent, 2);
 
             }
@@ -70,10 +71,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1){
-            //action apres avoir fini la recuperation du joueur.
-        } else if (requestCode == 2) {
 
+        switch (requestCode){
+            case 1 : //action apres avoir fini la recuperation du joueur. ;
+            break;
+            case 2 : //action apres avoir fini la recuperation du joueur. ;
+            break;
         }
     }
 }
