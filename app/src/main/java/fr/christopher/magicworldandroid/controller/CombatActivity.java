@@ -2,6 +2,7 @@ package fr.christopher.magicworldandroid.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import fr.christopher.magicworldandroid.R;
+import fr.christopher.magicworldandroid.model.Joueur;
 
 import android.os.Bundle;
 import android.view.View;
@@ -25,25 +26,40 @@ public class CombatActivity extends AppCompatActivity {
         attaqueSpeciale = (Button) findViewById(R.id.attaque_speciale);
         resultatAttaque = (TextView) findViewById(R.id.resultat_attaque);
 
-        // TODO recuper le joueur 1 et joueur 2.
-        // TODO definir le joueur 1 en attaquant et le joueur 2 en defenseur.
-        // TODO afficher que c'est au joueur 1 d'attaquer.
+        final Joueur joueur1 = getIntent().getParcelableExtra("joueur1");
+        final Joueur joueur2 = getIntent().getParcelableExtra("joueur2");
+
+        Joueur attaquant = joueur1;
+        Joueur defenseur = joueur2;
+        Joueur temp;
+
+        choixAttaque.setText("Joueur 1 a vous d'attaquer !");
 
         attaqueBasique.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO excuter la attaque basique de l'attaquant sur le defenseur.
-                // TODO inverser les role de l'attaquant et du defenseur.
-                // TODO afficher au nouveau attaquant d'attaquer.
+
+                attaquant.setAttaqueBasique(defenseur);
+
+                temp = attaquant;
+                attaquant = defenseur;
+                defenseur = temp;
+
+                choixAttaque.setText("Joueur 2 a vous d'attaquez !");
             }
         });
 
         attaqueSpeciale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO excuter la attaque speciale de l'attaquant sur le defenseur.
-                // TODO inverser les role de l'attaquant et du defenseur.
-                // TODO afficher au nouveau attaquant d'attaquer.
+
+                attaquant.setAttaqueSpecial(defenseur);
+
+                temp = attaquant;
+                attaquant = defenseur;
+                defenseur = temp;
+
+                choixAttaque.setText("Joueur 2 a vous d'attaquez !");
             }
         });
     }

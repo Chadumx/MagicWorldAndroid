@@ -4,17 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/principal"
     tools:context=".controller.MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="378dp"
-        android:layout_height="62dp"
-        android:gravity="center"
-        android:text="Bienvenue sur le jeu de combat"
-        android:textSize="16dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -24,7 +15,7 @@
         android:text="Magic World Android"
         android:textSize="50dp"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="105dp" />
+        tools:layout_editor_absoluteY="79dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -35,22 +26,25 @@
         tools:layout_editor_absoluteY="366dp" />
 
     <Button
+        style="@style/boutonPersonnage"
         android:id="@+id/joueur_1"
         android:layout_width="156dp"
         android:layout_height="58dp"
-        android:text="Button"
+        android:text="Joueur 1"
         tools:layout_editor_absoluteX="127dp"
         tools:layout_editor_absoluteY="451dp" />
 
     <Button
+        style="@style/boutonPersonnage"
         android:id="@+id/joueur_2"
         android:layout_width="141dp"
         android:layout_height="54dp"
-        android:text="Button"
+        android:text="Joueur 2"
         tools:layout_editor_absoluteX="136dp"
         tools:layout_editor_absoluteY="544dp" />
 
     <Button
+        style="@style/boutonCombat"
         android:id="@+id/bouton_demarrer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -2,6 +2,7 @@ package fr.christopher.magicworldandroid.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import fr.christopher.magicworldandroid.R;
+import fr.christopher.magicworldandroid.model.Joueur;
 
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,8 @@ public class PersonnageActivity extends AppCompatActivity {
         creationPersonnage = (Button) findViewById(R.id.creation_personnage);
 
         creationPersonnage.setEnabled(false);
+
+        Joueur joueur = getIntent().getParcelableExtra("joueur");
 
         creationPersonnage.setOnClickListener(new View.OnClickListener() {
             @Override

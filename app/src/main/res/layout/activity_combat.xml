@@ -10,7 +10,7 @@
         android:id="@+id/texte_choix_attaque"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="joueur 1 choisi ton attaque"
+        android:text=""
         tools:layout_editor_absoluteX="121dp"
         tools:layout_editor_absoluteY="156dp"
         tools:ignore="MissingConstraints" />

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/choix"
     tools:context=".controller.JoueurActivity">
 
     <TextView
@@ -16,29 +17,32 @@
         tools:ignore="MissingConstraints" />
 
     <Button
+        style="@style/boutonPersonnage"
         android:id="@+id/guerrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guerrier"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="424dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="375dp" />
 
     <Button
+        style="@style/boutonPersonnage"
         android:id="@+id/rodeur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rodeur"
-        tools:layout_editor_absoluteX="235dp"
-        tools:layout_editor_absoluteY="424dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteY="382dp" />
 
     <Button
+        style="@style/boutonPersonnage"
         android:id="@+id/mage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mage"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="572dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="529dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
