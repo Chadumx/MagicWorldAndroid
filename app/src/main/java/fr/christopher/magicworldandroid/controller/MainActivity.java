@@ -36,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent joueurActivityIntent = new Intent(MainActivity.this, JoueurActivity.class);
 
                 Joueur joueur1 = new Joueur();
-
-
+                joueurActivityIntent.putExtra("joueur", joueur1);
                 startActivityForResult(joueurActivityIntent, 1);
 
             }
@@ -50,8 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent joueurActivityIntent = new Intent(MainActivity.this, JoueurActivity.class);
 
                 Joueur joueur2 = new Joueur();
-                intent.putExtra("joueur", joueur2);
-
+                joueurActivityIntent.putExtra("joueur", joueur2);
                 startActivityForResult(joueurActivityIntent, 2);
 
             }
@@ -62,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent combatActivityIntent = new Intent(MainActivity.this, CombatActivity.class);
+
+                combatActivityIntent.putExtra("joueur1", this.joueur1);
+                combatActivityIntent.putExtra("joueur2", this.joueur2);
                 startActivity(combatActivityIntent);
 
             }
@@ -74,10 +75,12 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode){
-            case 1 : //action apres avoir fini la recuperation du joueur. ;
-            break;
-            case 2 : //action apres avoir fini la recuperation du joueur. ;
-            break;
+            case 1 : Joueur joueur1 = data.getIntExtra(, null);
+                     joueur02.setEnabled(true);
+                break;
+            case 2 : Joueur joueur2 = data.getIntExtra(, null);
+                     boutonDemarrer.setEnabled(true);
+                break;
         }
     }
 }

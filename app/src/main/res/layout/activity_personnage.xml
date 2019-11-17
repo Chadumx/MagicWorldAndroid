@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/personnagePrincipal"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,45 +8,48 @@
     tools:context=".controller.PersonnageActivity">
 
     <TextView
-        android:id="@+id/personnage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="creation du personnage du "
+        android:id="@+id/attributs_personnage"
+        style="@style/texteExplicatif"
+        android:text="Joueur 1"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="41dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/personnage"
+        style="@style/texteExplicatif"
+        android:text="Attributs de votre personnage"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="42dp" />
 
     <EditText
+        style="@style/editText"
         android:id="@+id/niveau_personnage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Niveau du personnage"
         tools:layout_editor_absoluteX="43dp"
         tools:layout_editor_absoluteY="157dp"
         tools:ignore="MissingConstraints" />
 
     <EditText
+        style="@style/editText"
         android:id="@+id/force_personnage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Force du personnage"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="278dp" />
 
     <EditText
+        style="@style/editText"
         android:id="@+id/agilite_personnage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Agilité du personnage"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="397dp" />
 
     <EditText
+        style="@style/editText"
         android:id="@+id/intelligence_personnage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Intelligence du personnage"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
@@ -56,9 +58,7 @@
     <Button
         style="@style/boutonCombat"
         android:id="@+id/creation_personnage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="creation personnage"
+        android:text="creation\npersonnage"
         tools:layout_editor_absoluteX="117dp"
         tools:layout_editor_absoluteY="640dp"
         tools:ignore="MissingConstraints" />

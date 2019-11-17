@@ -38,6 +38,7 @@ public class PersonnageActivity extends AppCompatActivity {
 
 
 
+
                 PersonnageActivity.this.finish();
 
             }

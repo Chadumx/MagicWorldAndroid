@@ -8,48 +8,48 @@
     tools:context=".controller.MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="240dp"
-        android:layout_height="218dp"
-        android:gravity="center"
-        android:text="Magic World Android"
-        android:textSize="50dp"
+        style="@style/nomApplication"
+        android:id="@+id/nom_application"
+        android:text="Magic\nWorld\nAndroid"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="79dp" />
+        tools:layout_editor_absoluteY="79dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="239dp"
-        android:layout_height="41dp"
-        android:text="creation du personnage !"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="366dp" />
+        style="@style/texteExplicatif"
+        android:id="@+id/action_joueur"
+        android:text="Joueur 1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="325dp" />
+
+    <TextView
+        style="@style/texteExplicatif"
+        android:id="@+id/action_a_faire"
+        android:text="Crée ton personnages !"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="354dp" />
 
     <Button
         style="@style/boutonPersonnage"
         android:id="@+id/joueur_1"
-        android:layout_width="156dp"
-        android:layout_height="58dp"
         android:text="Joueur 1"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="451dp" />
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="445dp" />
 
     <Button
         style="@style/boutonPersonnage"
         android:id="@+id/joueur_2"
-        android:layout_width="141dp"
-        android:layout_height="54dp"
         android:text="Joueur 2"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="544dp" />
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="535dp" />
 
     <Button
         style="@style/boutonCombat"
         android:id="@+id/bouton_demarrer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Lancez la partie !"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="641dp" />
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="619dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,42 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/arene01"
     tools:context=".controller.CombatActivity">
 
     <TextView
+        android:id="@+id/joueur1_vitalite"
+        style="@style/vitalite"
+        android:text="Joueur 1\n500"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="73dp" />
+
+    <TextView
+        android:id="@+id/joueur2_vitalite"
+        style="@style/vitalite"
+        android:text="Joueur 2\n500"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="275dp"
+        tools:layout_editor_absoluteY="73dp" />
+
+    <TextView
+        android:id="@+id/joueur_choix_attaque"
+        style="@style/texteExplicatif"
+        android:text="joueur 1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="241dp" />
+
+    <TextView
         android:id="@+id/texte_choix_attaque"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="156dp"
-        tools:ignore="MissingConstraints" />
+        style="@style/texteExplicatif"
+        android:text="Choisi ton attaque"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="272dp" />
 
     <Button
         android:id="@+id/attaque_basique"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/boutonCombat"
         android:text="attaque basique"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="317dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="409dp" />
 
     <Button
         android:id="@+id/attaque_speciale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/boutonCombat"
         android:text="attaque speciale"
-        tools:layout_editor_absoluteX="229dp"
-        tools:layout_editor_absoluteY="317dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/resultat_attaque"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="defenseur perds 0 point de vie"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="591dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="526dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

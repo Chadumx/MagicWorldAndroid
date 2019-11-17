@@ -9,40 +9,38 @@
 
     <TextView
         android:id="@+id/classe_personnage"
-        android:layout_width="202dp"
-        android:layout_height="95dp"
-        android:text="Choix de la classe du personnege du joueur 1"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="59dp"
-        tools:ignore="MissingConstraints" />
+        style="@style/texteExplicatif"
+        android:text="Choisi la classe du personnage"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="87dp" />
+
+    <TextView
+        android:id="@+id/classe_personnage_joueur"
+        style="@style/texteExplicatif"
+        android:text="joueur 1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="51dp" />
 
     <Button
-        style="@style/boutonPersonnage"
         android:id="@+id/guerrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/boutonPersonnage"
         android:text="Guerrier"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="375dp" />
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="225dp" />
 
     <Button
-        style="@style/boutonPersonnage"
         android:id="@+id/rodeur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/boutonPersonnage"
         android:text="Rodeur"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="382dp" />
 
     <Button
-        style="@style/boutonPersonnage"
         android:id="@+id/mage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/boutonPersonnage"
         android:text="Mage"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="529dp" />
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="532dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

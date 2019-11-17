@@ -36,7 +36,9 @@ public class JoueurActivity extends AppCompatActivity {
 
                 Intent personnageActivityIntent = new Intent(JoueurActivity.this, PersonnageActivity.class);
 
-                startActivity(personnageActivityIntent);
+                personnageActivityIntent.putExtra("joueur", joueur);
+
+                startActivityForResult(personnageActivityIntent, 1);
 
             }
         });
@@ -49,7 +51,9 @@ public class JoueurActivity extends AppCompatActivity {
 
                 Intent personnageActivityIntent = new Intent(JoueurActivity.this, PersonnageActivity.class);
 
-                startActivity(personnageActivityIntent);
+                personnageActivityIntent.putExtra("joueur", joueur);
+
+                startActivityForResult(personnageActivityIntent, 2);
 
             }
         });
@@ -61,7 +65,10 @@ public class JoueurActivity extends AppCompatActivity {
                 joueur.choix(3);
 
                 Intent personnageActivityIntent = new Intent(JoueurActivity.this, PersonnageActivity.class);
-                startActivity(personnageActivityIntent);
+
+                personnageActivityIntent.putExtra("joueur", joueur);
+
+                startActivityForResult(personnageActivityIntent, 3);
 
             }
         });
