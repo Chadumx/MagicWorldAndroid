@@ -9,7 +9,15 @@ import android.os.Parcelable;
 public class Joueur implements Parcelable {
 
     private Personnage classe;
-    private int niveau, force, agilite, intelligence, vitallite;
+    private int numeroJoueur, niveau, force, agilite, intelligence, vitallite;
+    private int choix;
+
+    public Joueur(){
+    }
+
+    public Joueur(int numeroJoueur){
+        this.numeroJoueur = numeroJoueur;
+    }
 
     public Joueur(Parcel in) {
         niveau = in.readInt();
@@ -17,6 +25,9 @@ public class Joueur implements Parcelable {
         agilite = in.readInt();
         intelligence = in.readInt();
         vitallite = in.readInt();
+        numeroJoueur = in.readInt();
+        choix = in.readInt();
+        classe = in.readParcelable()
     }
 
     public static final Creator<Joueur> CREATOR = new Creator<Joueur>() {
@@ -31,17 +42,22 @@ public class Joueur implements Parcelable {
         }
     };
 
+    public void setChoix(int choix) {
+        this.choix = choix;
+    }
+
     /**
      * Permet de choisir la classe du personange.
      */
-    public Joueur choix(int choix) {
+    public Joueur creation(int niveau, int force, int agilite, int intelligence) {
+
 
             switch (choix){
-                case 1 : this.classe = new Guerrier(niveau, force, agilite, intelligence, vitallite);
+                case 1 : this.classe = new Guerrier(niveau, force, agilite, intelligence, niveau * 5);
                     break;
-                case 2 : this.classe = new Rodeur(niveau, force, agilite, intelligence, vitallite);
+                case 2 : this.classe = new Rodeur(niveau, force, agilite, intelligence, niveau * 5);
                     break;
-                case 3 : this.classe = new Mage(niveau, force, agilite, intelligence, vitallite);
+                case 3 : this.classe = new Mage(niveau, force, agilite, intelligence, niveau * 5);
                     break;
             }
 
@@ -74,6 +90,10 @@ public class Joueur implements Parcelable {
         return this;
     }
 
+    public int getNumeroJoueur() {
+        return numeroJoueur;
+    }
+
     public int getVitalite(){
         return this.classe.getVitalite();
     }
@@ -94,5 +114,7 @@ public class Joueur implements Parcelable {
         dest.writeInt(agilite);
         dest.writeInt(intelligence);
         dest.writeInt(vitallite);
+        dest.writeInt(numeroJoueur);
+        dest.writeInt(choix);
     }
 }

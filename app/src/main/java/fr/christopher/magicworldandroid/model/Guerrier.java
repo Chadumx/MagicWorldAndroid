@@ -51,4 +51,14 @@ public class Guerrier extends Personnage {
         this.vitalite -= (this.force / 2);
 
     }
+
+    @Override
+    public String nomAttaqueBasique() {
+        return "Coup d’Épée";
+    }
+
+    @Override
+    public String nomAttaqueSpecial() {
+        return "Coup de Rage";
+    }
 }

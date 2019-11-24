@@ -59,4 +59,14 @@ public class Mage extends Personnage {
         int gainVitalite = this.vitalite - temp;
 
     }
+
+    @Override
+    public String nomAttaqueBasique() {
+        return "Boule de Feu";
+    }
+
+    @Override
+    public String nomAttaqueSpecial() {
+        return "Soin";
+    }
 }

@@ -16,7 +16,7 @@ class CombatsTest {
         System.setIn(new ByteArrayInputStream("1 100 100 0 0".getBytes()));
         return (new Joueur())
                 .setClavier(new Scanner(System.in))
-                .choix()
+                .creation()
                 ;
     }
 
@@ -24,7 +24,7 @@ class CombatsTest {
         System.setIn(new ByteArrayInputStream("2 100 0 100 0".getBytes()));
         return (new Joueur())
                 .setClavier(new Scanner(System.in))
-                .choix()
+                .creation()
                 ;
     }
 
@@ -32,7 +32,7 @@ class CombatsTest {
         System.setIn(new ByteArrayInputStream("3 100 0 0 100".getBytes()));
         return (new Joueur())
                 .setClavier(new Scanner(System.in))
-                .choix()
+                .creation()
                 ;
     }
     /**

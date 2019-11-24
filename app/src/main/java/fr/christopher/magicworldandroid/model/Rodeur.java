@@ -51,4 +51,14 @@ public class Rodeur extends Personnage {
         int gainAgilite = this.agilite - temp;
 
     }
+
+    @Override
+    public String nomAttaqueBasique() {
+        return "Tir à l’Arc";
+    }
+
+    @Override
+    public String nomAttaqueSpecial() {
+        return "Concentration";
+    }
 }

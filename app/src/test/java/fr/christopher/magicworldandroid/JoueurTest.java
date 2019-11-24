@@ -30,7 +30,7 @@ class JoueurTest {
         // Simule les entrees claviers.
         Joueur joueur = (new Joueur())
                 .setClavier(new Scanner(System.in))
-                .choix()
+                .creation()
                 ;
 
         // Verifie que l on a bien le guerrier niveau 100, avec les bonnes caracteristiques.
@@ -53,7 +53,7 @@ class JoueurTest {
         // Simule les entrees claviers.
         Joueur joueur = (new Joueur())
                 .setClavier(new Scanner(System.in))
-                .choix()
+                .creation()
                 ;
 
         // Verifie que l on a bien le rodeur niveau 100, avec les bonnes caracteristiques.
@@ -76,7 +76,7 @@ class JoueurTest {
         // Simule les entrees claviers.
         Joueur joueur = (new Joueur())
                 .setClavier(new Scanner(System.in))
-                .choix()
+                .creation()
                 ;
 
         // Verifie que l on a bien le mage niveau 100, avec les bonnes caracteristiques.
@@ -100,14 +100,14 @@ class JoueurTest {
 
             Joueur attaquant = (new Joueur())
                     .setClavier(new Scanner(System.in))
-                    .choix();
+                    .creation();
 
             // Initialise les futurs entrees claviers.
             System.setIn(new ByteArrayInputStream("3 1 0 0 1".getBytes()));
 
             Joueur defenseur = (new Joueur())
                     .setClavier(new Scanner(System.in))
-                    .choix();
+                    .creation();
 
             System.setIn(new ByteArrayInputStream("1".getBytes()));
 

@@ -2,65 +2,75 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/guerrier"
+    android:padding="32dp"
     tools:context=".controller.PersonnageActivity">
 
     <TextView
         android:id="@+id/attributs_personnage"
         style="@style/texteExplicatif"
-        android:text="Joueur 1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_height="wrap_content"
+        android:text="@string/nom_joueur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/personnage"
         style="@style/texteExplicatif"
-        android:text="Attributs de votre personnage"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="42dp" />
+        android:layout_height="wrap_content"
+        android:text="@string/attribut_personnage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attributs_personnage" />
 
     <EditText
-        style="@style/editText"
         android:id="@+id/niveau_personnage"
-        android:hint="Niveau du personnage"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="157dp"
-        tools:ignore="MissingConstraints" />
+        style="@style/editText"
+        android:layout_marginTop="70dp"
+        android:hint="@string/niveau_personnage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personnage" />
 
     <EditText
-        style="@style/editText"
         android:id="@+id/force_personnage"
-        android:hint="Force du personnage"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="278dp" />
+        style="@style/editText"
+        android:layout_marginTop="50dp"
+        android:hint="@string/force_personnage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/niveau_personnage" />
 
     <EditText
-        style="@style/editText"
         android:id="@+id/agilite_personnage"
-        android:hint="Agilité du personnage"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="397dp" />
+        style="@style/editText"
+        android:layout_marginTop="50dp"
+        android:hint="@string/agilite_personnage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/force_personnage" />
 
     <EditText
-        style="@style/editText"
         android:id="@+id/intelligence_personnage"
-        android:hint="Intelligence du personnage"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="516dp" />
+        style="@style/editText"
+        android:layout_marginTop="50dp"
+        android:hint="@string/intelligence_personnage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agilite_personnage" />
 
     <Button
-        style="@style/boutonCombat"
         android:id="@+id/creation_personnage"
-        android:text="creation\npersonnage"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="640dp"
-        tools:ignore="MissingConstraints" />
+        style="@style/boutonCombat"
+        android:layout_marginTop="50dp"
+        android:text="@string/creation_personnage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intelligence_personnage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,51 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/principal"
+    android:padding="32dp"
     tools:context=".controller.MainActivity">
 
     <TextView
-        style="@style/nomApplication"
         android:id="@+id/nom_application"
-        android:text="Magic\nWorld\nAndroid"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="79dp"
-        tools:ignore="MissingConstraints" />
+        style="@style/nomApplication"
+        android:layout_width="402dp"
+        android:layout_height="181dp"
+        android:text="@string/nom_app"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        style="@style/texteExplicatif"
         android:id="@+id/action_joueur"
-        android:text="Joueur 1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="325dp" />
+        style="@style/texteExplicatif"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/nom_joueur"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nom_application" />
 
     <TextView
-        style="@style/texteExplicatif"
         android:id="@+id/action_a_faire"
-        android:text="Crée ton personnages !"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="354dp" />
+        style="@style/texteExplicatif"
+        android:layout_height="0dp"
+        android:text="@string/cree_ton_personnage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/action_joueur" />
 
     <Button
-        style="@style/boutonPersonnage"
         android:id="@+id/joueur_1"
-        android:text="Joueur 1"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="445dp" />
-
-    <Button
         style="@style/boutonPersonnage"
-        android:id="@+id/joueur_2"
-        android:text="Joueur 2"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="535dp" />
+        android:layout_marginTop="32dp"
+        android:text="@string/joueur1"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/action_a_faire" />
 
     <Button
-        style="@style/boutonCombat"
+        android:id="@+id/joueur_2"
+        style="@style/boutonPersonnage"
+        android:layout_marginTop="32dp"
+        android:text="@string/joueur2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/joueur_1"
+        app:layout_constraintStart_toStartOf="@+id/joueur_1"
+        app:layout_constraintTop_toBottomOf="@+id/joueur_1" />
+
+    <Button
         android:id="@+id/bouton_demarrer"
-        android:text="Lancez la partie !"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="619dp" />
+        style="@style/boutonCombat"
+        android:text="@string/lancer_partie"
+        android:textSize="16sp"
+        app:layout_constrainedWidth="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/joueur_2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

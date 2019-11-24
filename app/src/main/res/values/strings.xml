@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">MagicWorldAndroid</string>
+    <string name="nom_app">Magic\nWorld\nAndroid</string>
+    <string name="nom_joueur">Joueur %d</string>
+    <string name="joueur1">joueur 1</string>
+    <string name="joueur2">joueur 2</string>
+    <string name="lancer_partie">Lancez la partie !</string>
+    <string name="choix_classe_personnage">Choisir la classe du personnage</string>
+    <string name="cree_ton_personnage">Crée ton personnage !</string>
+    <string name="guerrier">Guerrier</string>
+    <string name="rodeur">Rôdeur</string>
+    <string name="mage">Mage</string>
+    <string name="attribut_personnage">Attributs de votre personnage</string>
+    <string name="niveau_personnage">Niveau du personnage</string>
+    <string name="force_personnage">Force du personnage</string>
+    <string name="agilite_personnage">Agilité du personnage</string>
+    <string name="intelligence_personnage">Intelligence du personnage</string>
+    <string name="creation_personnage">creation\npersonnage</string>
+    <string name="vitalite_joueur1">Joueur 1\n%d</string>
+    <string name="vitalite_joueur2">Joueur 2\n%d</string>
+    <string name="choisir_attaque">Choisi ton attaque</string>
+    <string name="attaque_basique">attaque basique</string>
+    <string name="attaque_special">attaque special</string>
 </resources>

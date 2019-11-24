@@ -8,6 +8,8 @@ public abstract class Personnage {
     public abstract String getType();
     public abstract void attaqueBasique(Joueur defenseur);
     public abstract void attaqueSpecial(Joueur defenseur);
+    public abstract String nomAttaqueBasique();
+    public abstract String nomAttaqueSpecial();
 
     protected int niveau, force, agilite, intelligence, vitalite;
 

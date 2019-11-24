@@ -5,26 +5,38 @@ import androidx.appcompat.app.AppCompatActivity;
 import fr.christopher.magicworldandroid.model.Joueur;
 import fr.christopher.magicworldandroid.R;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcel;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button boutonDemarrer;
     private Button joueur01;
     private Button joueur02;
+    private Joueur joueur1;
+    private Joueur joueur2;
+    private TextView actionJoueur;
+    public static final String EXTRA_JOUEUR = "joueur";
+    public static final String EXTRA_JOUEUR1 = "joueur1";
+    public static final String EXTRA_JOUEUR2 = "joueur2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       joueur01 = (Button) findViewById(R.id.joueur_1);
-       joueur02 = (Button) findViewById(R.id.joueur_2);
-       boutonDemarrer = (Button) findViewById(R.id.bouton_demarrer);
+       joueur01 = findViewById(R.id.joueur_1);
+       joueur02 = findViewById(R.id.joueur_2);
+       boutonDemarrer = findViewById(R.id.bouton_demarrer);
+       actionJoueur = findViewById(R.id.action_joueur);
+
+       String nomJoueur = getString(R.string.nom_joueur, 1);
+       actionJoueur.setText(nomJoueur);
 
         joueur02.setEnabled(false);
         boutonDemarrer.setEnabled(false);
@@ -35,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent joueurActivityIntent = new Intent(MainActivity.this, JoueurActivity.class);
 
-                Joueur joueur1 = new Joueur();
-                joueurActivityIntent.putExtra("joueur", joueur1);
+                joueur1 = new Joueur(1);
+                joueurActivityIntent.putExtra(EXTRA_JOUEUR, joueur1);
                 startActivityForResult(joueurActivityIntent, 1);
 
             }
@@ -48,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent joueurActivityIntent = new Intent(MainActivity.this, JoueurActivity.class);
 
-                Joueur joueur2 = new Joueur();
-                joueurActivityIntent.putExtra("joueur", joueur2);
+                joueur2 = new Joueur(2);
+                joueurActivityIntent.putExtra(EXTRA_JOUEUR, joueur2);
                 startActivityForResult(joueurActivityIntent, 2);
 
             }
@@ -61,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent combatActivityIntent = new Intent(MainActivity.this, CombatActivity.class);
 
-                combatActivityIntent.putExtra("joueur1", this.joueur1);
-                combatActivityIntent.putExtra("joueur2", this.joueur2);
+                combatActivityIntent.putExtra(EXTRA_JOUEUR1, joueur1);
+                combatActivityIntent.putExtra(EXTRA_JOUEUR2, joueur2);
                 startActivity(combatActivityIntent);
 
             }
@@ -74,13 +86,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode){
-            case 1 : Joueur joueur1 = data.getIntExtra(, null);
-                     joueur02.setEnabled(true);
-                break;
-            case 2 : Joueur joueur2 = data.getIntExtra(, null);
-                     boutonDemarrer.setEnabled(true);
-                break;
+        if (resultCode == Activity.RESULT_OK) {
+
+            switch (requestCode) {
+                case 1:
+                    joueur1 = data.getParcelableExtra(EXTRA_JOUEUR);
+                    Log.e("MainActivity", joueur1.getClasse().getVitalite() + "");
+                    String nomJoueur = getString(R.string.nom_joueur, 2);
+                    actionJoueur.setText(nomJoueur);
+                    joueur02.setEnabled(true);
+                    break;
+                case 2:
+                    joueur2 = data.getParcelableExtra(EXTRA_JOUEUR);
+                    actionJoueur.setText("Combattants");
+                    boutonDemarrer.setEnabled(true);
+                    break;
+            }
         }
     }
 }

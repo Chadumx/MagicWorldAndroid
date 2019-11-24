@@ -5,42 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/choix"
+    android:padding="32dp"
     tools:context=".controller.JoueurActivity">
 
     <TextView
         android:id="@+id/classe_personnage"
         style="@style/texteExplicatif"
-        android:text="Choisi la classe du personnage"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="87dp" />
+        android:layout_height="0dp"
+        android:text="@string/choix_classe_personnage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classe_personnage_joueur" />
 
     <TextView
         android:id="@+id/classe_personnage_joueur"
         style="@style/texteExplicatif"
-        android:text="joueur 1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="51dp" />
+        android:layout_height="0dp"
+        android:text="@string/nom_joueur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/guerrier"
         style="@style/boutonPersonnage"
-        android:text="Guerrier"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="225dp" />
+        android:layout_marginTop="32dp"
+        android:text="@string/guerrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classe_personnage" />
 
     <Button
         android:id="@+id/rodeur"
         style="@style/boutonPersonnage"
-        android:text="Rodeur"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="382dp" />
+        android:layout_marginTop="100dp"
+        android:text="@string/rodeur"
+        app:layout_constraintEnd_toEndOf="@+id/guerrier"
+        app:layout_constraintStart_toStartOf="@+id/guerrier"
+        app:layout_constraintTop_toBottomOf="@+id/guerrier" />
 
     <Button
         android:id="@+id/mage"
         style="@style/boutonPersonnage"
-        android:text="Mage"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="532dp" />
+        android:layout_marginTop="100dp"
+        android:text="@string/mage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rodeur"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rodeur"
+        app:layout_constraintTop_toBottomOf="@+id/rodeur"
+        app:layout_constraintVertical_bias="0.509" />
 </androidx.constraintlayout.widget.ConstraintLayout>
