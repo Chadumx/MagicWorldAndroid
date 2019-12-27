@@ -7,6 +7,7 @@ import fr.christopher.magicworldandroid.R;
 import fr.christopher.magicworldandroid.model.Joueur;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,8 +27,7 @@ public class CombatActivity extends AppCompatActivity {
     private Joueur joueur2;
     private Joueur attaquant;
     private Joueur defenseur;
-    private Joueur temp;
-    private ConstraintLayout root2;
+    private ConstraintLayout root1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,35 +40,27 @@ public class CombatActivity extends AppCompatActivity {
         joueur1Vitalite = findViewById(R.id.joueur1_vitalite);
         joueur2Vitalite = findViewById(R.id.joueur2_vitalite);
         nomJoueur = findViewById(R.id.joueur_choix_attaque);
-        root2 = findViewById(R.id.root2);
-
-        attributionBackground();
+        root1 = findViewById(R.id.root1);
 
         joueur1 = getIntent().getParcelableExtra(MainActivity.EXTRA_JOUEUR1);
         joueur2 = getIntent().getParcelableExtra(MainActivity.EXTRA_JOUEUR2);
 
-        String nbrJoueur = getString(R.string.nom_joueur, joueur1.getNumeroJoueur());
-        nomJoueur.setText(nbrJoueur);
-
-        joueur1Vitalite.setText("joueur 1 " + joueur1.getClasse().getVitalite());
-        joueur2Vitalite.setText("joueur 2 " + joueur2.getClasse().getVitalite());
-
         attaquant = joueur1;
         defenseur = joueur2;
 
-        choixAttaque.setText("Joueur 1 a vous d'attaquer !");
-        attaqueBasique.setText("attaqueBasique");
-        attaqueSpeciale.setText("attaque special");
+        attributionBackground();
+        afficheVitalite();
+        modificationMessage();
 
         attaqueBasique.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                attaquant.setAttaqueBasique(defenseur);
+                attaquant.attaqueBasique(defenseur);
 
-                changementAttaquant(attaquant, defenseur);
+                afficheMessageCombats(attaquant.nomAttaqueBasique());
+
                 testMort();
-                modificationMessage(defenseur);
             }
         });
 
@@ -76,11 +68,11 @@ public class CombatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                attaquant.setAttaqueSpecial(defenseur);
+                attaquant.attaqueSpecial(defenseur);
 
-                changementAttaquant(attaquant, defenseur);
+                afficheMessageCombats(attaquant.nomAttaqueSpecial());
+
                 testMort();
-                modificationMessage(defenseur);
             }
         });
     }
@@ -90,18 +82,21 @@ public class CombatActivity extends AppCompatActivity {
         int nbr = new Random().nextInt(2);
 
         switch (nbr){
-            case 0 : root2.setBackgroundResource(R.drawable.arene01);
+            case 0 : root1.setBackgroundResource(R.drawable.arene01);
                 break;
-            case 1 : root2.setBackgroundResource(R.drawable.arene02);
+            case 1 : root1.setBackgroundResource(R.drawable.arene02);
                 break;
-            case 2 : root2.setBackgroundResource(R.drawable.arene03);
+            case 2 : root1.setBackgroundResource(R.drawable.arene03);
         }
     }
 
     public void testMort(){
 
-        if (attaquant.getVitalite() <= 0 && defenseur.getVitalite() <= 0){
+        if (attaquant.getVitalite() <= 0 || defenseur.getVitalite() <= 0){
             finPartie();
+        } else {
+            changementAttaquant();
+            modificationMessage();
         }
     }
 
@@ -110,40 +105,64 @@ public class CombatActivity extends AppCompatActivity {
         String message = null;
 
         if (joueur1.getVitalite() <= 0){
-            message = "Joueur 1, vous avez perdu !";
+            message = getString(R.string.mort_joueur, 1);
         } else if (joueur2.getVitalite() <= 0){
-            message = "Joueur 2, vous avez perdu !";
+            message = getString(R.string.mort_joueur, 2);
         }
 
         AlertDialog.Builder finPartie = new AlertDialog.Builder(this);
 
-        finPartie.setTitle("Fin de partie")
+        finPartie.setTitle(R.string.fin_partie)
                 .setMessage(message)
-                .setPositiveButton("Recommencez", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.Recommencez, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        Intent newGames = new Intent(CombatActivity.this, MainActivity.class);
+                        startActivity(newGames);
+                        finishAffinity();
                     }
                 })
                 .create()
                 .show();
     }
 
-    public void changementAttaquant(Joueur attaquant, Joueur defenseur){
+    public void changementAttaquant(){
 
-        temp = attaquant;
+        Joueur temp = attaquant;
         attaquant = defenseur;
         defenseur = temp;
 
     }
 
-    public void modificationMessage(Joueur defenseur){
+    public void modificationMessage(){
 
-        choixAttaque.setText("Joueur " + defenseur.getNumeroJoueur() + " a vous d'attaquez !");
-        attaqueBasique.setText(defenseur.getClasse().nomAttaqueBasique());
-        attaqueSpeciale.setText(defenseur.getClasse().nomAttaqueSpecial());
-        joueur1Vitalite.setText("joueur 1 " + joueur1.getClasse().getVitalite());
-        joueur2Vitalite.setText("joueur 2 " + joueur2.getClasse().getVitalite());
+        String nbrJoueur = getString(R.string.nom_joueur, attaquant.getNumeroJoueur());
+        nomJoueur.setText(nbrJoueur);
+        choixAttaque.setText(getString(R.string.attaque));
+        attaqueBasique.setText(attaquant.nomAttaqueBasique());
+        attaqueSpeciale.setText(attaquant.nomAttaqueSpecial());
+        afficheVitalite();
+    }
 
+    public void afficheVitalite(){
+
+        joueur1Vitalite.setText(getString(R.string.joueur1_vie, joueur1.getVitalite()));
+        joueur2Vitalite.setText(getString(R.string.joueur2_vie, joueur2.getVitalite()));
+    }
+
+    public void afficheMessageCombats(String attaque){
+
+        AlertDialog.Builder messageCombats = new AlertDialog.Builder(this);
+
+        messageCombats.setTitle(attaquant.messageCombats())
+                .setMessage(attaquant.messageResumerResultats(attaque, defenseur))
+                .setPositiveButton(R.string.joueur_attaque_suivante, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .create()
+                .show();
     }
 }

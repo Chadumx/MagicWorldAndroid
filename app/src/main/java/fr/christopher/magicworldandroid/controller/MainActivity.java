@@ -2,8 +2,8 @@ package fr.christopher.magicworldandroid.controller;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import fr.christopher.magicworldandroid.model.Joueur;
 import fr.christopher.magicworldandroid.R;
+import fr.christopher.magicworldandroid.model.Joueur;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,22 +18,29 @@ public class MainActivity extends AppCompatActivity {
     private Button boutonDemarrer;
     private Button joueur01;
     private Button joueur02;
+
     private Joueur joueur1;
     private Joueur joueur2;
+
     private TextView actionJoueur;
+    private TextView actionAFaire;
+
     public static final String EXTRA_JOUEUR = "joueur";
     public static final String EXTRA_JOUEUR1 = "joueur1";
     public static final String EXTRA_JOUEUR2 = "joueur2";
+    public static final String NUMERO_JOUEUR = "numeroJoueur";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+       boutonDemarrer = findViewById(R.id.bouton_demarrer);
        joueur01 = findViewById(R.id.joueur_1);
        joueur02 = findViewById(R.id.joueur_2);
-       boutonDemarrer = findViewById(R.id.bouton_demarrer);
+
        actionJoueur = findViewById(R.id.action_joueur);
+       actionAFaire = findViewById(R.id.action_a_faire);
 
        String nomJoueur = getString(R.string.nom_joueur, 1);
        actionJoueur.setText(nomJoueur);
@@ -47,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent joueurActivityIntent = new Intent(MainActivity.this, JoueurActivity.class);
 
-                joueur1 = new Joueur(1);
-                joueurActivityIntent.putExtra(EXTRA_JOUEUR, joueur1);
+                joueurActivityIntent.putExtra(EXTRA_JOUEUR, 1);
+                joueurActivityIntent.putExtra(NUMERO_JOUEUR, 1);
                 startActivityForResult(joueurActivityIntent, 1);
 
             }
@@ -60,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent joueurActivityIntent = new Intent(MainActivity.this, JoueurActivity.class);
 
-                joueur2 = new Joueur(2);
-                joueurActivityIntent.putExtra(EXTRA_JOUEUR, joueur2);
+                joueurActivityIntent.putExtra(EXTRA_JOUEUR, 2);
+                joueurActivityIntent.putExtra(NUMERO_JOUEUR, 2);
                 startActivityForResult(joueurActivityIntent, 2);
 
             }
@@ -91,14 +98,15 @@ public class MainActivity extends AppCompatActivity {
             switch (requestCode) {
                 case 1:
                     joueur1 = data.getParcelableExtra(EXTRA_JOUEUR);
-                    Log.e("MainActivity", joueur1.getClasse().getVitalite() + "");
+                    Log.e("MainActivity", joueur1.getVitalite() + "");
                     String nomJoueur = getString(R.string.nom_joueur, 2);
                     actionJoueur.setText(nomJoueur);
                     joueur02.setEnabled(true);
                     break;
                 case 2:
                     joueur2 = data.getParcelableExtra(EXTRA_JOUEUR);
-                    actionJoueur.setText("Combattants");
+                    actionJoueur.setText(getString(R.string.combattants));
+                    actionAFaire.setText(getString(R.string.debut_combat));
                     boutonDemarrer.setEnabled(true);
                     break;
             }

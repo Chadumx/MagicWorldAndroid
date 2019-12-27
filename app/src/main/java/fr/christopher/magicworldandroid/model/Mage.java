@@ -1,9 +1,17 @@
 package fr.christopher.magicworldandroid.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import fr.christopher.magicworldandroid.MagicWorldApplication;
+import fr.christopher.magicworldandroid.R;
+
 /**
  *definie la methode des differentes attaques de la classe mage.
  */
-public class Mage extends Personnage {
+public class Mage extends Joueur {
+
+    private MagicWorldApplication texte = new MagicWorldApplication().getInstance();
 
     public final int VITALITE = this.vitalite;
 
@@ -14,12 +22,26 @@ public class Mage extends Personnage {
      * @param force
      * @param agilite
      * @param intelligence
-     * @param vitallite
      */
-    public Mage(int niveau, int force, int agilite, int intelligence, int vitallite) {
-        super(niveau, force, agilite, intelligence, vitallite);
+    public Mage(int numeroJoueur, int niveau, int force, int agilite, int intelligence) {
+        super(numeroJoueur, niveau, force, agilite, intelligence);
     }
 
+    public Mage(Parcel in) {
+        super(in);
+    }
+
+    public static final Parcelable.Creator<Mage> CREATOR = new Creator<Mage>() {
+        @Override
+        public Mage createFromParcel(Parcel in) {
+            return new Mage(in);
+        }
+
+        @Override
+        public Mage[] newArray(int size) {
+            return new Mage[size];
+        }
+    };
 
     /**
      * permet de retourne le nom de la classe mage.
@@ -27,7 +49,7 @@ public class Mage extends Personnage {
      */
     @Override
     public String getType() {
-        return "Mage";
+        return texte.getString(R.string.mage);
     }
 
     /**
@@ -39,7 +61,6 @@ public class Mage extends Personnage {
 
         int vitalite = defenseur.getVitalite() - this.intelligence;
         defenseur.setVitalite(vitalite);
-
     }
 
     /**
@@ -62,11 +83,47 @@ public class Mage extends Personnage {
 
     @Override
     public String nomAttaqueBasique() {
-        return "Boule de Feu";
+        return texte.getString(R.string.basique_mage);
     }
 
     @Override
     public String nomAttaqueSpecial() {
-        return "Soin";
+        return texte.getString(R.string.special_mage);
+    }
+
+    @Override
+    public String messageCombats() {
+        return texte.getString(R.string.message_combats_mage, texte.getString(R.string.adjectif_mage));
+    }
+
+    @Override
+    public String messageResumerResultats(String attaque, Joueur defenseur) {
+
+        String message = null;
+
+        if (attaque == texte.getString(R.string.basique_mage)){
+
+            message = texte.getString(R.string.resumer_combats_basique,
+                            texte.getString(R.string.joueur),
+                            numeroJoueur,
+                            texte.getString(R.string.adjectif_mage),
+                            texte.getString(R.string.basique_mage),
+                            texte.getString(R.string.joueur),
+                            defenseur.getNumeroJoueur(),
+                            getIntelligence()
+            );
+
+        } else if (attaque == texte.getString(R.string.special_mage)){
+            message = texte.getString(R.string.resumer_combats_mage_special,
+                texte.getString(R.string.joueur),
+                            numeroJoueur,
+                            texte.getString(R.string.adjectif_mage),
+                            texte.getString(R.string.special_mage),
+                            texte.getString(R.string.joueur),
+                            numeroJoueur,
+                            VITALITE - vitalite
+            );
+        }
+        return message;
     }
 }

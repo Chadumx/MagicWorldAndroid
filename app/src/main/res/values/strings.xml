@@ -1,24 +1,89 @@
 <resources>
+
+    <!-- Nom Application -->
+
     <string name="app_name">MagicWorldAndroid</string>
     <string name="nom_app">Magic\nWorld\nAndroid</string>
+
+    <!-- Joueur -->
+
     <string name="nom_joueur">Joueur %d</string>
+    <string name="joueur">joueur</string>
+    <string name="joueur_attaque">joueur %1$d %2$s</string>
     <string name="joueur1">joueur 1</string>
     <string name="joueur2">joueur 2</string>
-    <string name="lancer_partie">Lancez la partie !</string>
+    <string name="joueur1_vie">joueur 1\n%1$d</string>
+    <string name="joueur2_vie">joueur 2\n%1$d</string>
+    <string name="mort_joueur">Joueur %1$d, vous avez perdu !</string>
+
+    <!-- Classe Joueur -->
+
     <string name="choix_classe_personnage">Choisir la classe du personnage</string>
-    <string name="cree_ton_personnage">Crée ton personnage !</string>
     <string name="guerrier">Guerrier</string>
     <string name="rodeur">Rôdeur</string>
     <string name="mage">Mage</string>
+    <string name="guerrier1">guerrier</string>
+    <string name="rodeur1">rôdeur</string>
+    <string name="mage1">mage</string>
+
+    <!-- Attributs Personnage -->
+
     <string name="attribut_personnage">Attributs de votre personnage</string>
     <string name="niveau_personnage">Niveau du personnage</string>
     <string name="force_personnage">Force du personnage</string>
     <string name="agilite_personnage">Agilité du personnage</string>
     <string name="intelligence_personnage">Intelligence du personnage</string>
-    <string name="creation_personnage">creation\npersonnage</string>
     <string name="vitalite_joueur1">Joueur 1\n%d</string>
     <string name="vitalite_joueur2">Joueur 2\n%d</string>
+    <string name="niveau">Niveau</string>
+    <string name="force">Force</string>
+    <string name="agilite">Agilité</string>
+    <string name="intelligence">Intelligence</string>
+
+    <!-- Texte Explicatif -->
+
+    <string name="lancer_partie">Lancez la partie !</string>
+    <string name="cree_ton_personnage">Crée ton personnage !</string>
+    <string name="creation_personnage">creation\npersonnage</string>
     <string name="choisir_attaque">Choisi ton attaque</string>
     <string name="attaque_basique">attaque basique</string>
     <string name="attaque_special">attaque special</string>
+    <string name="fin_partie">Fin de partie</string>
+    <string name="Recommencez">Recommencez</string>
+    <string name="attaque"> a vous d\'attaquez !</string>
+    <string name="debut_combat">Démarrez le combats !</string>
+    <string name="combattants">Combattants</string>
+    <string name="message_combats_guerrier">resultat de %1$s</string>
+    <string name="message_combats_rodeur">resultat de %1$s</string>
+    <string name="message_combats_mage">resultat du %1$s</string>
+    <string name="adjectif_guerrier">l\'attaque</string>
+    <string name="adjectif_rodeur">l\'assaut</string>
+    <string name="adjectif_mage">le sort</string>
+    <string name="resumer_combats_basique">%1$s %2$d lance %3$s %4$s !\n%5$s %6$d perds %7$d points de vie !</string>
+    <string name="resumer_combats_guerrier_special">%1$s %2$d lance %3$s %4$s !\n%5$s %6$d perds %7$d points de vie !\n%8$s %9$d perds %10$d points de vie !</string>
+    <string name="resumer_combats_rodeur_special">%1$s %2$d lance %3$s %4$s !\n%5$s %6$d gagne %7$d d\'Agilité !</string>
+    <string name="resumer_combats_mage_special">%1$s %2$d lance le %3$s %4$s !\n%5$s %6$d gagne %7$d en points de vie !</string>
+    <string name="joueur_attaque_suivante">Ok</string>
+    <string name="description_choix_personnage">Description de votre personnage !</string>
+    <string name="creation_personnage_suivante">Crée</string>
+    <string name="caracteristique_personnage">%1$s %2$d, vous avez crée un %3$s.\nCes attributs sont :\n- %4$s = %5$d\n- %6$s = %7$d\n- %8$s = %9$d\n- %10$s = %11$d\n</string>
+
+    <!-- ERROR -->
+
+    <string name="erreur_champs">Erreur, veuillez renseigner tout les champs</string>
+    <string name="erreur_nombre">Erreur, le niveau doit être compris entre 1 et 100 !</string>
+    <string name="erreur_attribut">Erreur, la somme de tous les attributs ne doit pas depasser le niveau du personnage !</string>
+
+    <!-- Nom Attaque Basique -->
+
+    <string name="basique_guerrier">Coup d’Épée</string>
+    <string name="basique_rodeur">Tir à l’Arc</string>
+    <string name="basique_mage">Boule de Feu</string>
+
+    <!-- Nom Attaque Special -->
+
+    <string name="special_guerrier">Coup de Rage</string>
+    <string name="special_rodeur">Concentration</string>
+    <string name="special_mage">Soin</string>
+
 </resources>

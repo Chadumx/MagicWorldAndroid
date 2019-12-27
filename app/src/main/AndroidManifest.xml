@@ -3,6 +3,7 @@
     package="fr.christopher.magicworldandroid">
 
     <application
+        android:name=".MagicWorldApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +12,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".controller.JoueurActivity"></activity>
         <activity android:name=".controller.CombatActivity" />
-        <activity android:name=".controller.PersonnageActivity" />
         <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

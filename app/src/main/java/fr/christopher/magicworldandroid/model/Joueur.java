@@ -3,103 +3,46 @@ package fr.christopher.magicworldandroid.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import fr.christopher.magicworldandroid.R;
+
 /**
  * Determine la classe du personnage.
  */
-public class Joueur implements Parcelable {
+public abstract class Joueur implements Parcelable {
 
-    private Personnage classe;
-    private int numeroJoueur, niveau, force, agilite, intelligence, vitallite;
-    private int choix;
+    public abstract String getType();
 
-    public Joueur(){
-    }
+    public abstract void attaqueBasique(Joueur defenseur);
 
-    public Joueur(int numeroJoueur){
+    public abstract void attaqueSpecial(Joueur defenseur);
+
+    public abstract String nomAttaqueBasique();
+
+    public abstract String nomAttaqueSpecial();
+
+    public abstract String messageCombats();
+
+    public abstract String messageResumerResultats(String attaque, Joueur defenseur);
+
+    protected int numeroJoueur, niveau, force, agilite, intelligence, vitalite;
+
+    public Joueur(int numeroJoueur, int niveau, int force, int agilite, int intelligence) {
+
         this.numeroJoueur = numeroJoueur;
+        this.niveau = niveau;
+        this.force = force;
+        this.agilite = agilite;
+        this.intelligence = intelligence;
+        this.vitalite = niveau * 5;
     }
 
-    public Joueur(Parcel in) {
-        niveau = in.readInt();
-        force = in.readInt();
-        agilite = in.readInt();
-        intelligence = in.readInt();
-        vitallite = in.readInt();
-        numeroJoueur = in.readInt();
-        choix = in.readInt();
-        classe = in.readParcelable()
-    }
-
-    public static final Creator<Joueur> CREATOR = new Creator<Joueur>() {
-        @Override
-        public Joueur createFromParcel(Parcel in) {
-            return new Joueur(in);
-        }
-
-        @Override
-        public Joueur[] newArray(int size) {
-            return new Joueur[size];
-        }
-    };
-
-    public void setChoix(int choix) {
-        this.choix = choix;
-    }
-
-    /**
-     * Permet de choisir la classe du personange.
-     */
-    public Joueur creation(int niveau, int force, int agilite, int intelligence) {
-
-
-            switch (choix){
-                case 1 : this.classe = new Guerrier(niveau, force, agilite, intelligence, niveau * 5);
-                    break;
-                case 2 : this.classe = new Rodeur(niveau, force, agilite, intelligence, niveau * 5);
-                    break;
-                case 3 : this.classe = new Mage(niveau, force, agilite, intelligence, niveau * 5);
-                    break;
-            }
-
-        return this;
-    }
-
-    /**
-     * Permet de retourne la classe du personnage.
-     * @return retourne la classe du personnage.
-     */
-    public Personnage getClasse() {
-        return classe;
-    }
-
-    public Joueur setVitalite (int val ){
-        this.classe.setVitalite(val);
-
-        return this;
-    }
-
-    public Joueur setAttaqueBasique(Joueur defenseur){
-        this.classe.attaqueBasique(defenseur);
-
-        return this;
-    }
-
-    public Joueur setAttaqueSpecial(Joueur defenseur){
-        this.classe.attaqueSpecial(defenseur);
-
-        return this;
-    }
-
-    public int getNumeroJoueur() {
-        return numeroJoueur;
-    }
-
-    public int getVitalite(){
-        return this.classe.getVitalite();
-    }
-
-    public void setClasse(Personnage classe) {
-        this.classe = classe;
+    protected Joueur(Parcel in){
+        this.numeroJoueur = in.readInt();
+        this.niveau = in.readInt();
+        this.force = in.readInt();
+        this.agilite = in.readInt();
+        this.intelligence = in.readInt();
+        this.vitalite = in.readInt();
     }
 
     @Override
@@ -109,12 +52,41 @@ public class Joueur implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeInt(numeroJoueur);
         dest.writeInt(niveau);
         dest.writeInt(force);
         dest.writeInt(agilite);
         dest.writeInt(intelligence);
-        dest.writeInt(vitallite);
-        dest.writeInt(numeroJoueur);
-        dest.writeInt(choix);
+        dest.writeInt(vitalite);
     }
+
+    public int getNiveau() {
+        return niveau;
+    }
+
+    public int getForce() {
+        return force;
+    }
+
+    public int getAgilite() {
+        return agilite;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public int getNumeroJoueur() {
+        return numeroJoueur;
+    }
+
+    public int getVitalite() {
+        return vitalite;
+    }
+
+    public void setVitalite(int vitalite) {
+        this.vitalite = vitalite;
+    }
+
 }
